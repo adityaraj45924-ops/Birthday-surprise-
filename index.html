@@ -1,31 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <title>Birthday Surprise</title>
 
 <style>
 body {
-    margin: 0;
-    overflow: hidden;
-    height: 100vh;
-    font-family: Arial;
-    text-align: center;
-}
-
-/* LOGIN PAGE */
-#loginPage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    background: black;
-    color: white;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  color: white;
+  font-family: Arial;
+  text-align: center;
 }
 
 input {
-    padding: 12px;
-    margin: 10px;
-    font-size: 18px;
-    border-radius:
+  padding: 12px;
+  font-size: 18px;
+  border-radius: 8px;
+  border: none;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div>
+  <h2>Enter Password 💖</h2>
+  <input type="password" id="pass">
+  <br>
+  <button onclick="check()">Open Surprise 🎁</button>
+</div>
+
+<script>
+function check() {
+  var p = document.getElementById("pass").value;
+
+  if(p === "1234"){
+    window.location.href = "secret_surprise.html";
+  } else {
+    alert("Wrong Password 😢");
+  }
+}
+</script>
+
+</body>
+</html>
