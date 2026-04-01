@@ -1,182 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Surprise 💖</title>
+<meta charset="UTF-8">
+<title>Birthday Surprise</title>
 
 <style>
 body {
     margin: 0;
+    overflow: hidden;
+    height: 100vh;
     font-family: Arial;
     text-align: center;
+}
+
+/* LOGIN PAGE */
+#loginPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background: black;
     color: white;
-    overflow: hidden;
-    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80') no-repeat center/cover;
 }
 
-/* center */
-.page {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-}
-
-/* hide */
-.hidden { display: none; }
-
-/* button */
-button {
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
-    margin-top: 20px;
-}
-
-/* hearts */
-.fall {
-    position: fixed;
-    top: -50px;
-    animation: fall linear infinite;
-}
-@keyframes fall {
-    100% { transform: translateY(110vh); }
-}
-
-/* fireworks */
-.firework {
-    position: fixed;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    animation: explode 1s ease-out forwards;
-}
-@keyframes explode {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(12); opacity: 0; }
-}
-</style>
-</head>
-
-<body>
-
-<!-- LOGIN -->
-<div id="login" class="page">
-    <h2>🎂 Enter Name 💖</h2>
-    <input id="name" placeholder="Enter Name"><br>
-    <button onclick="login()">Enter 💕</button>
-</div>
-
-<!-- SCREEN 1 -->
-<div id="p1" class="page hidden">
-    <h1>💖 Hi Cutie 💖</h1>
-    <button onclick="next(1)">Click Me 💕</button>
-</div>
-
-<!-- SCREEN 2 -->
-<div id="p2" class="page hidden">
-    <h1>💐 This is for you 💖</h1>
-    <button onclick="next(2)">Next 💜</button>
-</div>
-
-<!-- SCREEN 3 -->
-<div id="p3" class="page hidden">
-    <h1>🎉 This is special day for my cutie 💖</h1>
-    <button onclick="next(3)">Next 💕</button>
-</div>
-
-<!-- SCREEN 4 -->
-<div id="p4" class="page hidden">
-    <h1>🎂 Happy Birthday Cutie 🎆</h1>
-    <button onclick="next(4)">Final 💗</button>
-</div>
-
-<!-- SCREEN 5 -->
-<div id="p5" class="page hidden">
-
-    <!-- BIG BACK TEXT -->
-    <h1 style="
-        position:absolute;
-        top:50%;
-        left:50%;
-        transform:translate(-50%,-50%);
-        font-size:60px;
-        color:rgba(255,255,255,0.08);
-        z-index:-1;
-    ">
-    💖 I Like You Cutie 💖
-    </h1>
-
-    <!-- SHAYARI -->
-    <h2>
-    💖🌹<br>
-    Tumhari muskaan meri jaan hai,<br>
-    Tumse hi meri pehchaan hai,<br>
-    Har pal bas tum hi yaad aate ho,<br>
-    Mere liye tum hi meri duniya ho 💐❤️
-    </h2>
-
-</div>
-
-<script>
-
-// LOGIN CHECK
-function login(){
-    let name = document.getElementById("name").value.toLowerCase();
-
-    if(name === "payal dwivedi"){
-        document.getElementById("login").style.display="none";
-        document.getElementById("p1").style.display="block";
-        startHearts();
-    } else {
-        alert("Wrong Name ❌");
-    }
-}
-
-// FLOW
-function next(n){
-    document.getElementById("p"+n).style.display="none";
-    document.getElementById("p"+(n+1)).style.display="block";
-
-    if(n === 3){
-        startFireworks();
-    }
-}
-
-// HEARTS
-function startHearts(){
-    setInterval(()=>{
-        const items = ["❤️","💖","🌹","💐"];
-        let el = document.createElement("div");
-        el.className = "fall";
-        el.innerHTML = items[Math.floor(Math.random()*items.length)];
-
-        el.style.left = Math.random()*window.innerWidth+"px";
-        el.style.fontSize = (20+Math.random()*30)+"px";
-        el.style.animationDuration = (3+Math.random()*3)+"s";
-
-        document.body.appendChild(el);
-        setTimeout(()=>el.remove(),6000);
-    },400);
-}
-
-// FIREWORKS
-function startFireworks(){
-    setInterval(()=>{
-        let f = document.createElement("div");
-        f.className="firework";
-
-        f.style.left=Math.random()*window.innerWidth+"px";
-        f.style.top=Math.random()*window.innerHeight+"px";
-        f.style.background=["red","yellow","blue","pink"][Math.floor(Math.random()*4)];
-
-        document.body.appendChild(f);
-        setTimeout(()=>f.remove(),1000);
-    },300);
-}
-
-</script>
-
-</body>
-</html>
+input {
+    padding: 12px;
+    margin: 10px;
+    font-size: 18px;
+    border-radius:
